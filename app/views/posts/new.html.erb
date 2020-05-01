@@ -1,0 +1,18 @@
+<h1>Add Post</h1>
+
+<%= form_for :post,url:posts_path do |f| %>
+    <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%end%>
+    <%end%>
+    <p>
+        Title: <%= f.text_field(:title,{:class => 'form-control'}) %><br />
+    </p>
+    <p>
+        text : <%= f.text_area(:body,{:class => 'form-control'}) %><br />
+    </p>
+    <p>
+        <%= f.submit({:class => 'btn btn-primary'}) %>
+    </p>
+  <% end %>
